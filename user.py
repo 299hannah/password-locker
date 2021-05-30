@@ -57,7 +57,7 @@ class Credentials:
             cedentials to be stored
         """
         self.account  = account
-        self.userName = userName
+        self.username = username #sjsjsj
         self.password = password
 
     def save_details(self):
@@ -180,9 +180,35 @@ def main():
             print("See you later!!")
             break
         else:
-            print("invalid shortcode\n")
+            print("invalid! check your entry again \n")
 
+    while True:
+        print("what do you want to do?\n  1. cc for create new credentials \n 2. ds for Display existing Credentials\n 3. fc for find a credential \n 4. dc for Delete an existing credential \n 5. ex-Exit application")
+        shortCode = input().lower().strip()
 
+        if shortCode == 'cc':
+            print("New Credential account")
+            print("\n")
+
+            print("Account Name example Instagram")
+            account = input().lower()
+
+            print("Account username: ")
+            username = input()
+
+            while True:
+                print("1. TP- To type your password if already have an account:\n 2.GP-To generate random password")
+                passwordOption = input().lower()
+                if passwordOption == 'TP':
+                    print("Account's Password :")
+                    password = input()
+
+                    break
+                elif passwordOption == 'GP':
+                    password = generatePassword()
+                    break
+                else:
+                    print("invalid password please try again")
 
 
         
