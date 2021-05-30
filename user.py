@@ -222,6 +222,35 @@ def main():
                 print(f"Account credential for: {account} - username: {username} - password:{password} created successfully")
                 print("/n")
 
+        elif shortCode == "ds" :
+            if display_credentials():
+                print("Your credentials include: \n")
+                for credential in Credentials.credentials_list:
+                    account=account
+                    username=username
+                    password=password
+                    print(
+                        f"Account name: {account}\n Account username: {username}\n Account password: {password}\n"
+
+                    )
+                else:
+                    print("You have no saved credentials\n")
+
+        # elif short_code == "fc":
+        #     print("Enter the Account Name you want to search for")
+        #     search_name = input().lower()
+        #     if find_credential(search_name):
+        #         search_credential = find_credential(search_name)
+        #         print(f"Account Name : {search_credential.account}")
+        #         print('-' * 50)
+        #         print(f"User Name: {search_credential.userName} Password :{search_credential.password}")
+        #         print('-' * 50)
+        #     else:
+        #         print("That Credential does not exist")
+        #         print('\n')
+
+    
+
 
         
 main()
