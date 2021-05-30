@@ -154,16 +154,36 @@ def main():
             
     
         elif shortCode  == 'lg':
-             print("*"*100)
+             print("*"*50)
              print("Enter your username and password")
-             print("*"*30)
+             print("*"*50)
 
              print("Username")
              username = input()
              print("password")
              password = input()
 
-            #  for user in User
+             for user in User.userList:
+                 if username ==user.username:
+                    if user.password == password:
+                        print(user.login())
+                    else:
+                        print("password invalid")
+                        break
+                 else:
+                     print("username invalid")
+                     break
+                 break
+
+        elif shortCode =='ex':
+
+            print("See you later!!")
+            break
+        else:
+            print("invalid shortcode\n")
+
+
+
 
         
 main()
