@@ -70,6 +70,14 @@ class Credentials:
 
 
     @classmethod
+    def createCredential(self, account, username, password):
+        "creates new credential"
+        newCredential = credentials(account,username,password)
+        return newCredential
+
+    def save_credentials(credentials):
+        "save credentials in the list"
+        return credentials.display_credentials()
 
     def find_credential(cls, account):
         "method that takes class name and returns the account name credential"
@@ -87,7 +95,7 @@ class Credentials:
 
     @classmethod
 
-    def if_credential_exist(cls, account):
+    def credentialExist(cls, account):
 
         "checks if the credential exists from the list"
 
@@ -96,19 +104,19 @@ class Credentials:
                 return True
         return False
 
-        @classmethod
-        def display_credentials(Cls):
+    @classmethod
+    def display_credentials(Cls):
             "returns all credentials in the list"
             return cls.credentials_list
 
-        def generatePassword(stringLength=8):
+    def generatePassword(stringLength=8):
             "generates a random password "
 
             password = string.ascii_uppercase + strinng.ascii_lowercase + string.digits + "!@#$%^&*"
             return '',join(random.choice(password) for i in range (stringLength))
 
       
-        def copypassword(parameter_list):
+    def copypassword(parameter_list):
              """
              method that allows copying of password to keyboard
              """
@@ -201,14 +209,18 @@ def main():
                 passwordOption = input().lower()
                 if passwordOption == 'TP':
                     print("Account's Password :")
-                    password = input()
+                    password = input().lower().strip()
 
-                    break
                 elif passwordOption == 'GP':
                     password = generatePassword()
                     break
                 else:
                     print("invalid password please try again")
+
+                saveCredentials(createCredential(account,username,password))
+                print('/n')
+                print(f"Account credential for: {account} - username: {username} - password:{password} created successfully")
+                print("/n")
 
 
         
