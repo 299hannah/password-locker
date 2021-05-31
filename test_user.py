@@ -1,4 +1,6 @@
 import unittest
+import Credentials
+import pyperclip
 from user import User
 
 

@@ -262,9 +262,9 @@ def main():
 
         elif shortCode == 'dc':
             print("Account name you would like to delete?")
-            AccountName = input()
-            if Credentials.credentialExist(AccountName):
-                Credentials.deleteCredential(AccountName)
+            account= input().lower().strip()
+            if Credentials.credentialExist(account):
+                Credentials.deleteCredential(account)
                 print("Account Successfully deleted")
 
             else:
@@ -275,7 +275,7 @@ def main():
             isTrue = False
 
         else:
-            print("invalid short code")
+            print("invalid")
 
 
 main()
