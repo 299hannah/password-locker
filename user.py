@@ -1,5 +1,6 @@
 import getpass
 import random
+import string
 import pyperclip
 
 
@@ -77,10 +78,10 @@ class Credentials:
     @classmethod
     def createCredential(self, account, username, password):
         "creates new credential"
-        newCredential = credentials(account, username, password)
+        newCredential = Credentials(account, username, password)
         return newCredential
 
-    def save_credentials(credentials):
+    def save_credentials(self, account, username, password):
         "save credentials in the list"
         return credentials.display_credentials()
 
@@ -114,8 +115,8 @@ class Credentials:
     def generatePassword(stringLength=8):
         "generates a random password "
 
-        password = string.ascii_uppercase + strinng.ascii_lowercase + string.digits + "!@#$%^&*"
-        return '', join(random.choice(password) for i in range(stringLength))
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "!@#"
+        return ''.join(random.choice(password) for i in range(stringLength))
 
     def copypassword(parameter_list):
         """
@@ -154,8 +155,8 @@ def main():
 
                     break
                 elif passwordOption == 'gp':
-                    password = generatePassword()
-                    break
+                     password = Credentials.generatePassword()
+                     break
                 else:
                     print("invalid pasword")
 
@@ -222,12 +223,13 @@ def main():
                     password = input().lower().strip()
 
                 elif passwordOption == 'GP':
-                    password = generatePassword()
-                    break
+                    password = Credentials.generatePassword()
+                    # break
                 else:
                     print("invalid password please try again")
+                Credentials.createCredential(account, username, password)
 
-                saveCredentials(createCredential(account, username, password))
+                Credentials.save_credentials(account, username, password)
                 print('/n')
                 print(
                     f"Account credential for: {account} - username: {username} - password:{password} created successfully"
