@@ -127,15 +127,15 @@ class Credentials:
 
 def main():
 
-    # isTrue = True
+    isTrue = True
 
     print(
         "Welcome to password Locker.Here you manage your passwords and even generate new passwords."
     )
     while isTrue == True:
-        print(
-                "Hi, your account has logged in successfully!"
-                 )
+        # print(
+        #         "Hi , your account has logged in successfully!"
+        #          )
 
         print(
             "Please enter one to proceed:\n\n 1. ca for Create new Account\n 2. lg for login\n 3. ex for Exit"
@@ -194,9 +194,9 @@ def main():
                         print(
                                 f"Hi {username}, your account has logged in successfully! \n Your password is: {password}"
                                 )
-                # else:
-                #     print("username invalid")
-                    # break
+            else:
+                    print("username invalid")
+                    break
                 
 
         # elif shortCode == 'ex':
@@ -292,7 +292,7 @@ def main():
 
         elif shortCode == 'ex':
             print("See you later!")
-            # isTrue = False
+            isTrue = False
 
         else:
             print("invalid")
