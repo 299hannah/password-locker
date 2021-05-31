@@ -229,7 +229,7 @@ def main():
                     print("invalid password please try again")
                 Credentials.createCredential(account, username, password)
 
-                Credentials.save_credentials(account, username, password)
+                Credentials.save_credentials(self,account, username, password)
                 print('/n')
                 print(
                     f"Account credential for: {account} - username: {username} - password:{password} created successfully"
