@@ -9,14 +9,14 @@ class TestUser(unittest.TestCase):
         '''
         method to run each test
         '''
-        self.user = User("Dorcas", "1234")
+        self.user = User("Hannah", "123")
 
     def test_init(self):
         '''
         check proper user initialization
         '''
-        self.assertEqual(self.user.user_name, "Dorcas")
-        self.assertEqual(self.user.password, "1234")
+        self.assertEqual(self.user.username, "Hannah")
+        self.assertEqual(self.user.password, "123")
 
     def tearDown(self):
         '''
@@ -30,7 +30,7 @@ class TestUser(unittest.TestCase):
         method to test multiple saved users
         '''
         self.user.saveUser()
-        test_user = User("Ron", "12345678")  # new contact
+        test_user = User("Ian", "456")  # new contact
         test_user.saveUser()
 
         self.assertEqual(len(User.userList), 2)
@@ -40,7 +40,7 @@ class TestUser(unittest.TestCase):
         delete users
         """
         self.user.saveUser()
-        test_user = User("Ron", "12345678")  # new contact
+        test_user = User("Ian", "456")  # new contact
         test_user.saveUser()
 
         self.user.deleteUser()
