@@ -81,7 +81,7 @@ class Credentials:
         newCredential = Credentials(account, username, password)
         return newCredential
 
-    def save_credentials(self, account, username, password):
+    def save_credentials( account, username, password):
         "save credentials in the list"
         return credentials.display_credentials()
 
@@ -229,7 +229,7 @@ def main():
                     print("invalid password please try again")
                 Credentials.createCredential(account, username, password)
 
-                Credentials.save_credentials(self,account, username, password)
+                Credentials.save_credentials(account, username, password)
                 print('/n')
                 print(
                     f"Account credential for: {account} - username: {username} - password:{password} created successfully"
