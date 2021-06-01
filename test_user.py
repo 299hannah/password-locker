@@ -3,7 +3,7 @@ from user import Credentials
 import pyperclip
 from user import User
 
-class TestUser(unittest.TestCase):
+class TestClass(unittest.TestCase):
 
     def setUp(self):
         '''
@@ -53,13 +53,13 @@ class TestUser(unittest.TestCase):
         self.assertEqual(User.displayUser(), User.userList)
 
 
-class TestUser(unittest.TestCase):
+class TestCredentials(unittest.TestCase):
 
     def setUp(self):
         """
         define the constructor
         """
-        self.cred = Credentials("Facebook", "face", "123445")
+        self.cred = Credentials("Instagram", "inst", "12345")
 
     def tearDown(parameter_list):
         """
@@ -71,48 +71,48 @@ class TestUser(unittest.TestCase):
         """
         make sure the constructor is well initialized
         """
-        self.assertEqual(self.cred.accountName, "Facebook")
-        self.assertEqual(self.cred.accountUsername, "face")
-        self.assertEqual(self.cred.accountPassword, "123445")
+        self.assertEqual(self.cred.account, "Instagram")
+        self.assertEqual(self.cred.username, "inst")
+        self.assertEqual(self.cred.password, "12345")
 
     def test_save_multiples_cred(self):
         """
         test for multiple credentials
         """
-        self.cred.saveCredential()
-        test_cred = Credentials("Facebook", "faceeeee", 12343)  # new contact
-        test_cred.saveCredential()
+        self.cred.save_details()
+        test_cred = Credentials("Instagram", "insta", 123456)  # new contact
+        test_cred.save_details()
 
-        self.assertEqual(len(Credentials.credentials), 3)
+        self.assertEqual(len(Credentials.credentials_list), 3)
 
     def test_delete(self):
         """
         test if the credential can be deleted
         
         """
-        self.cred.saveCredential()
-        test_cred = Credentials("Facebook", "faceeeee", 12343)  # new contact
-        test_cred.saveCredential()
+        self.cred.save_details()
+        test_cred = Credentials("Instagram", "insta", 123456)  # new contact
+        test_cred.save_details()
 
-        self.cred.deleteCredential()
-        self.assertEqual(len(Credentials.credentials), 1)
+        self.cred.delete_credentials()
+        self.assertEqual(len(Credentials.credentials_list), 1)
 
-    def test_search(self):
+    def  test_find_credential(self):
         """
         search a credential 
         """
-        self.cred.searchCredential()
-        test_cred = Credentials("Facebook", "faceeeee", 12343)  # new contact
-        test_cred.searchCredential()
+        self.cred.find_credential()
+        test_cred = Credentials("Instagram", "insta", 123456)  # new contact
+        test_cred.find_credential()
 
-        found = Credentials.searchCredential("Facebook")
-        self.assertEqual(found.accountName, test_cred.accountName)
+        found = Credentials.find_credential("Instagram")
+        self.assertEqual(found.account, test_cred.account)
 
     def test_display(self):
         """
         method to test if credentials can be displayed
         """
-        self.assertEqual(Credentials.displayCredential(), Credentials.credentials)
+        self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
 
 
 if __name__ == "__main__":
