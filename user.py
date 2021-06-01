@@ -1,4 +1,4 @@
-import getpass
+# import getpass
 import random
 import string
 import pyperclip
@@ -257,7 +257,7 @@ def main():
                 # print("/n")
 
         elif shortCode == "ds":
-            if display_credentials():
+            if Credentials.display_credentials():
                 print("Your credentials include: \n")
                 for credential in Credentials.credentials_list:
                     account = account

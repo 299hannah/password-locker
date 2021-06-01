@@ -3,7 +3,7 @@ from user import Credentials
 import pyperclip
 from user import User
 
-class TestClass(unittest.TestCase):
+class TestUser(unittest.TestCase):
 
     def setUp(self):
         '''
@@ -53,7 +53,7 @@ class TestClass(unittest.TestCase):
         self.assertEqual(User.displayUser(), User.userList)
 
 
-class TestCredentials(unittest.TestCase):
+class TestUser(unittest.TestCase):
 
     def setUp(self):
         """
@@ -101,9 +101,9 @@ class TestCredentials(unittest.TestCase):
         """
         search a credential 
         """
-        self.cred.find_credential()
+        self.cred.find_credential("Instagram")
         test_cred = Credentials("Instagram", "insta", 123456)  # new contact
-        test_cred.find_credential()
+        test_cred.find_credential("Instagram")
 
         found = Credentials.find_credential("Instagram")
         self.assertEqual(found.account, test_cred.account)
