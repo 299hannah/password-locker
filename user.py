@@ -231,20 +231,20 @@ def main():
                )
             print("/n")
 
-            while True:
-                print(
-                    "1. TP- To type your password if already have an account:\n 2.GP-To generate random password"
-                )
-                passwordOption = input().lower().strip()
-                if passwordOption == 'TP':
-                    print("Account's Password :")
-                    password = input().lower().strip()
+            # while True:
+            #     print(
+            #         "1. TP- To type your password if already have an account:\n 2.GP-To generate random password"
+            #     )
+            #     passwordOption = input().lower()
+            #     if passwordOption == 'TP':
+            #         print("Account's Password :")
+            #         password = input().lower()
             
-                elif passwordOption == 'GP':
-                    password = Credentials.generatePassword()
-                    # break
-                else:
-                    print("invalid password please try again")
+            #     elif passwordOption == 'GP':
+            #         password = Credentials.generatePassword()
+            #         break
+            #     else:
+            #         print("invalid password please try again")
 
                 
                 # Credentials.createCredential(account, username, password)
@@ -257,7 +257,7 @@ def main():
                 # print("/n")
 
         elif shortCode == "ds":
-            if Credentials.display_credentials():
+            # if Credentials.display_credentials():
                 print("Your credentials include: \n")
                 for credential in Credentials.credentials_list:
                     account = account
