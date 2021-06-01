@@ -195,8 +195,10 @@ def main():
                                 f"Hi {username}, your account has logged in successfully! \n Your password is: {password}"
                                 )
             else:
-                    print("username invalid")
-                    break
+                
+
+                print("Create Account")
+                break
                 
 
         # elif shortCode == 'ex':
